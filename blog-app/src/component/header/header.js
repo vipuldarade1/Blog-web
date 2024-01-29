@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import { useState } from "react";
 const Header = (props) => {
-  const Gdata = props.data;
-  console.log(Gdata);
-  const [nSearch, SetSearch] = useState("");
+  
+ 
+  const [nSearch, SetSearch] = useState('');
 
   function Search(sarching) {
-    //  
+      
     SetSearch(sarching);
     props.Getserch(nSearch);
   }

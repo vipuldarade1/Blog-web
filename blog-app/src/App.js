@@ -17,10 +17,10 @@ useEffect(() => {
     .then((get) => get.json())
     .then((data) => {
       all_blog = data.articles;
-      console.log(data.articles);
+      
       SetBlog(data.articles);
     });
-}, []);
+},[]);
 
   return (
     <div className="App">

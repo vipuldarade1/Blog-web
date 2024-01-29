@@ -6,29 +6,35 @@ import { useNavigate } from "react-router-dom";
 
 const Main = (props) => {
   const naviagte = useNavigate();
-  const Blogdata=props.blogdata;
-  const [Change, Setchange] = useState();
-  
+
+  const blogdata = props.blogdata;
+  console.log(blogdata);
+
+  const [Change, Setchange] = useState([]);
+  useEffect(() => {
+    Setchange(props.blogdata);
+  },[]);
+
   const navigatetdp = (title) => {
     console.log(title);
     naviagte(`/blog_page/${title}`);
   };
+
   const Getsearch = (Sdata) => {
-    
+    console.log(Sdata);
     Setchange(
-      Blogdata.filter((data) =>
+      blogdata.filter((data) =>
         data.title.toLowerCase().includes(Sdata.toLowerCase())
       )
     );
-    
   };
-  
+
   return (
     <>
       <Header data={props.blogdata} Getserch={Getsearch} />
       <div className="container">
         <ul className="flex flex-wrap">
-          {Change.map((blog) => (
+          {Change&&Change.map((blog) => (
             <Card style={{ width: "18rem", margin: "1rem" }} key={blog.title}>
               <Card.Body>
                 <Card.Title>{blog.title}</Card.Title>
