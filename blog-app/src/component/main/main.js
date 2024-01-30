@@ -13,7 +13,7 @@ const Main = (props) => {
   const [Change, Setchange] = useState([]);
   useEffect(() => {
     Setchange(props.blogdata);
-  },[]);
+  });
 
   const navigatetdp = (title) => {
     console.log(title);

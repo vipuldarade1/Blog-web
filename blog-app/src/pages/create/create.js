@@ -1,79 +1,88 @@
 import { useEffect, useState } from "react";
 import Header from "../../component/header/header";
-import './create.css'
-const Create = () => {
+import Authcontex from "../../context/auth-context";
+import "./create.css";
+const Create = (props) => {
   const [Aouther, setauther] = useState("");
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
   const [image, setimage] = useState("");
-  const [desc,setdesc]=useState('');
-  const [published,setpublished]=useState('')
-  const [src,setsrc]=useState('');
-  const[url,seturl]=useState('')
-  console.log(Aouther,content,title,
-    image,desc,published,src,url
-    );
+  const [desc, setdesc] = useState("");
+  const [published, setpublished] = useState("");
+  const [src, setsrc] = useState("");
+  const [url, seturl] = useState("");
+  
+
+
   return (
-    <>
+    <><Authcontex.Provider value={{Aouther}}>
       <Header />
-      <div className="container flex flex-col ... space-y-6 ... mb-4">
-        <div><h3>Create Blog</h3></div>
-        <label>author name</label>
-        <input
-        className="w-24"
-          name=""
-          value={Aouther}
-          onChange={(e) => setauther(e.target.value)}
-        ></input>
-         <label>Blog Title</label>
-         <input
-        className="w-80"
-          name="Image"
-          value={title}
-          onChange={(e) => settitle(e.target.value)}
-        ></input>
-         <label>content</label>
-        <textarea
-        className="h-44"
-          value={content}
-          onChange={(e) => setcontent(e.target.value)}
-        ></textarea>
-         <label>description</label>
-        <textarea
-        className="h-44"
-          value={desc}
-          onChange={(e) => setdesc(e.target.value)}
-        ></textarea>
-         <label>Image-Url</label>
-        <input
-        className="w-80"
-          name="Image"
-          value={image}
-          onChange={(e) => setimage(e.target.value)}
-        ></input>
-         <label>Date</label>
-         <input
-        className="w-80"
-          name="Image"
-          value={[published]}
-          type="date"
-          onChange={(e) => setpublished(e.target.value)}
-        ></input>
-         <label>source</label>
-         <input
-        className="w-80"
-          name="Image"
-          value={src}
-          onChange={(e) => setsrc(e.target.value)}
-        ></input>
-         <label>Blog Url</label>
-         <input
-        className="w-80"
-          name="Image"
-          value={url}
-          onChange={(e) => seturl(e.target.value)}
-        ></input>
-      </div>
+      
+        <div className="container flex flex-col ... space-y-6 ... mb-4">
+          <div>
+            <h3>Create Blog</h3>
+          </div>
+          <label>author name</label>
+          <input
+            className="w-52 h-6"
+            name=""
+            value={Aouther}
+            onChange={(e) => setauther(e.target.value)}
+          ></input>
+          <label>Blog Title</label>
+          <input
+            className="w-80 h-6"
+            name="Image"
+            value={title}
+            onChange={(e) => settitle(e.target.value)}
+          ></input>
+          <label>content</label>
+          <textarea
+            className="h-44"
+            value={content}
+            onChange={(e) => setcontent(e.target.value)}
+          ></textarea>
+          <label>description</label>
+          <textarea
+            className="h-44"
+            value={desc}
+            onChange={(e) => setdesc(e.target.value)}
+          ></textarea>
+          <label>Image-Url</label>
+          <input
+            className="w-80 h-6"
+            name="Image"
+            value={image}
+            onChange={(e) => setimage(e.target.value)}
+          ></input>
+          <label>Date</label>
+          <input
+            className="w-80 h-6"
+            name="Image"
+            value={[published]}
+            type="date"
+            onChange={(e) => setpublished(e.target.value)}
+          ></input>
+          <label>source</label>
+          <input
+            className="w-80 h-6"
+            name="Image"
+            value={src}
+            onChange={(e) => setsrc(e.target.value)}
+          ></input>
+          <label>Blog Url</label>
+          <input
+            className="w-80 h-6"
+            name="Image"
+            value={url}
+            onChange={(e) => seturl(e.target.value)}
+          ></input>
+          <button type="submits" >
+            {" "}
+            submits
+          </button>
+        </div>
+      </Authcontex.Provider>
     </>
   );
 };
