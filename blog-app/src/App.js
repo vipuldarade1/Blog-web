@@ -1,5 +1,4 @@
 import "./App.css";
-
 import Main from "./component/main/main";
 import Create from "./pages/create/create";
 import Bpage from "./pages/blog_page/blog_page";
@@ -15,8 +14,9 @@ function App() {
   "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=9ffc57759a18406eb520e14919a63e0b";
 let all_blog = [];
 const [blog, SetBlog] = useState([]);
+
 const usecont=useContext(Authcontex)
-  console.log(usecont?.Aouther)
+  console.log(usecont)
 useEffect(() => {
   fetch(url)
     .then((get) => get.json())
