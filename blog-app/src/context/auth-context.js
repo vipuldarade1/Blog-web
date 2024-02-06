@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
-const authcontex=createContext();
+const authcontex=createContext(undefined);
 export default authcontex;

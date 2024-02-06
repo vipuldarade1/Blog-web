@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Header from "../../component/header/header";
-import Authcontex from "../../context/auth-context";
+
 import "./create.css";
 import {  useNavigate } from "react-router-dom";
 const Create = (props) => {
-  const Naviagte=useNavigate()
+  
   const [Aouther, setauther] = useState("");
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
@@ -29,14 +29,14 @@ const Create = (props) => {
     ];
 
     SetnewArr(arr);
-    Naviagte('/')
+    console.log(arr)
   };
 
   console.log(newArr);
 
   return (
     <>
-      <Authcontex.Provider value={{ newArr }}>
+     
         <Header />
 
         <div className="container flex flex-col ... space-y-6 ... mb-4">
@@ -102,7 +102,7 @@ const Create = (props) => {
             SUBMIT
           </button>
         </div>
-      </Authcontex.Provider>
+      
     </>
   );
 };
