@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from 'react';
 import Header from "../header/header";
 import { useNavigate } from "react-router-dom";
-
+import './main.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash'
 
 const Main = (props) => {
   const naviagte = useNavigate();
@@ -27,7 +29,10 @@ const Main = (props) => {
       )
     );
   };
-  
+  const handledelete=title=>{
+    alert('You are deleting blog')
+    props.getdel(title)
+  }
 
   return (
     <>
@@ -36,10 +41,10 @@ const Main = (props) => {
         <div className="container">
           <ul className="flex flex-wrap">
             {Change &&
-              Change.map((blog) => (
+              Change.map((blog,index) => (
                 <Card
-                  style={{ width: "18rem", margin: "1rem" }}
-                  key={blog.title}
+                  style={{ width: "18rem", margin: "1rem" ,mixHeight:'40rem'}}
+                  key={index}
                 >
                   <Card.Body>
                     <Card.Title>{blog.title}</Card.Title>
@@ -54,6 +59,7 @@ const Main = (props) => {
                     >
                       more
                     </Card.Link>
+                    <button className="delete" onClick={()=>handledelete(blog.title)}><FontAwesomeIcon icon={faTrash} /></button>
                   </Card.Body>
                 </Card>
               ))}
