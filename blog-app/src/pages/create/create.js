@@ -32,14 +32,15 @@ const Create = (props) => {
     props.getobj(newArr);
     navigating("/");
   };
-
+let getupdata=props.sendupdate
+console.log(getupdata)
   return (
     <>
       <Header />
 
       <div className="container flex flex-col ... space-y-6 ... mb-4">
-        <div>
-          <h3>Create Blog</h3>
+        <div><h3>Create Blog</h3>
+          
         </div>
         <label>author name</label>
         <input
@@ -96,7 +97,7 @@ const Create = (props) => {
           value={url}
           onChange={(e) => seturl(e.target.value)}
         ></input>
-        <button type="submits" onClick={submit}>
+        <button type="submits" >
           SUBMIT
         </button>
       </div>

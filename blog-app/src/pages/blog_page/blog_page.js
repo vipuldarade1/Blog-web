@@ -1,11 +1,14 @@
 import Header from "../../component/header/header";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 const Bpage = (props) => {
   const Blogin=props.blogdata;
-  const params=useParams()
   console.log(Blogin)
+  const params=useParams()
+ 
   const selectblog=Blogin.find(blog=>blog.title===params.title)
   console.log(selectblog)
+  
+ 
   return (
     <>
       <Header />

@@ -5,7 +5,7 @@ import Header from "../header/header";
 import { useNavigate } from "react-router-dom";
 import './main.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash'
+import {faTrashCan} from '@fortawesome/free-solid-svg-icons/faTrashCan'
 
 const Main = (props) => {
   const naviagte = useNavigate();
@@ -33,6 +33,9 @@ const Main = (props) => {
     alert('You are deleting blog')
     props.getdel(title)
   }
+  const handleupdate=title=>{
+    props.getupdate(title)
+  }
 
   return (
     <>
@@ -59,7 +62,9 @@ const Main = (props) => {
                     >
                       more
                     </Card.Link>
-                    <button className="delete" onClick={()=>handledelete(blog.title)}><FontAwesomeIcon icon={faTrash} /></button>
+                    <button className="delete" onClick={()=>handleupdate(blog.title)}></button>
+                    <button className="delete" onClick={()=>handledelete(blog.title)}><FontAwesomeIcon icon={faTrashCan} /></button>
+                    
                   </Card.Body>
                 </Card>
               ))}

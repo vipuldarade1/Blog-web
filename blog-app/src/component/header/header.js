@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import "./header.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Header = (props) => {
-  
- 
-  const [nSearch, SetSearch] = useState('');
+  const naviagate = useNavigate();
+  const [nSearch, SetSearch] = useState("");
 
   function Search(sarching) {
-      
     SetSearch(sarching);
     props.Getserch(nSearch);
+  }
+  function Gocreate() {
+    naviagate("/create");
   }
   return (
     <>
@@ -28,7 +30,9 @@ const Header = (props) => {
           </li>
 
           <li class="font-sans ... font-medium .. uppercase ... text-zinc-700  basis-1  w-full ...">
-            <Link to="create">Create Blogs</Link>
+            <Link to="create" onClick={Gocreate}>
+              Create Blogs
+            </Link>
           </li>
         </ul>
       </nav>
