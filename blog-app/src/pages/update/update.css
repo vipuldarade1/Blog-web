@@ -1,0 +1,16 @@
+
+input {
+    box-shadow: 5px 5px 15px rgb(74, 110, 121);
+  }
+  textarea {
+    box-shadow: 5px 5px 15px rgb(74, 110, 121);
+  }
+  button {
+    background-color: rgb(24, 23, 23);
+    width: 180px;
+    height: 40px;
+    color: aliceblue;
+    border-radius: 5px;
+    
+  }
+  

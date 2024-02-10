@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
 import Header from "../../component/header/header";
+import "./update.css";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-import "./create.css";
-import { useNavigate } from "react-router-dom";
-const Create = (props) => {
-  const navigating = useNavigate();
+const Update = (props) => {
+  const Params = useParams();
   const [Aouther, setauther] = useState("");
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
@@ -14,46 +14,29 @@ const Create = (props) => {
   const [src, setsrc] = useState("");
   const [url, seturl] = useState("");
 
-
   const [newArr, SetnewArr] = useState([]);
- 
+  const getdata = props.blogdata;
+  console.log(getdata);
 
   const submit = () => {
-    let arr = [
-      {
-        author: Aouther,
-        content: content,
-        title: title,
-        urlToImage: image,
-        description: desc,
-        publishedAt: published,
-        source: src,
-        url: url,
-      },
-    ];
-    SetnewArr(arr);
-    
-    props.getobj(newArr);
-    navigating("/");
+    console.log("update");
   };
-
-
   return (
     <>
       <Header />
 
       <div className="container flex flex-col ... space-y-6 ... mb-4">
-        <div><h3>Create Blog</h3>
-          
+        <div>
+          <h3>Update Blog</h3>
         </div>
         <label>author name</label>
         <input
-        className="w-52 h-6"
-        name=""
-        value={Aouther}
-        onChange={(e) =>setauther(e.target.value)}
-      ></input>
-        
+          className="w-52 h-6"
+          name=""
+          value={Aouther}
+          onChange={(e) => setauther(e.target.value)}
+        ></input>
+
         <label>Blog Title</label>
         <input
           className="w-80 h-6"
@@ -102,7 +85,7 @@ const Create = (props) => {
           value={url}
           onChange={(e) => seturl(e.target.value)}
         ></input>
-        <button type="submits" onClick={()=>submit()}>
+        <button type="submits" onClick={() => submit()}>
           Submit
         </button>
       </div>
@@ -110,4 +93,4 @@ const Create = (props) => {
   );
 };
 
-export default Create;
+export default Update;

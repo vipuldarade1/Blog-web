@@ -9,7 +9,7 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons/faTrashCan'
 
 const Main = (props) => {
   const naviagte = useNavigate();
-
+const navigateUp=useNavigate()
   const blogdata = props.blogdata;
   const [Change, Setchange] = useState([]);
   useEffect(() => {
@@ -35,6 +35,7 @@ const Main = (props) => {
   }
   const handleupdate=title=>{
     props.getupdate(title)
+    navigateUp(`/update/${title}`)
   }
 
   return (
