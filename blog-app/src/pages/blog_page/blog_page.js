@@ -1,5 +1,5 @@
 import Header from "../../component/header/header";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const Bpage = (props) => {
   const Blogin=props.blogdata;
   console.log(Blogin)

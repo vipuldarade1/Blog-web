@@ -1,25 +1,54 @@
 import Header from "../../component/header/header";
 import "./update.css";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 const Update = (props) => {
   const Params = useParams();
-  const [Aouther, setauther] = useState("");
-  const [content, setcontent] = useState("");
-  const [title, settitle] = useState("");
-  const [image, setimage] = useState("");
-  const [desc, setdesc] = useState("");
-  const [published, setpublished] = useState("");
-  const [src, setsrc] = useState("");
-  const [url, seturl] = useState("");
+const naviagte=useNavigate()
+  const [Aouther, setauther] = useState({
+    author: "",
+    content: "",
+    title: "",
+    urlToImage: "",
+    description: "",
+    publishedAt: "",
+    source: {
+      Name: "",
+    },
+    url: "",
+  });
 
-  const [newArr, SetnewArr] = useState([]);
   const getdata = props.blogdata;
-  console.log(getdata);
+ 
+  const selectdata = getdata.find((data) => data.title === Params.title);
 
-  const submit = () => {
+  useEffect(() => {
+    setauther({
+      ...Aouther,
+      author: selectdata.author,
+      content: selectdata.content,
+      title: selectdata.title,
+      urlToImage: selectdata.urlToImage,
+      description: selectdata.description,
+      src: selectdata.source.name,
+      publishedAt: selectdata.publishedAt,
+      url: selectdata.url,
+    });
+  }, []);
+  
+
+  const Update = () => {
     console.log("update");
+    let arr = [
+      {
+     ...Aouther
+      },
+    ];
+    
+    props.Updating(arr)
+    naviagte('/')
   };
   return (
     <>
@@ -33,60 +62,62 @@ const Update = (props) => {
         <input
           className="w-52 h-6"
           name=""
-          value={Aouther}
-          onChange={(e) => setauther(e.target.value)}
+          value={Aouther.author}
+          onChange={(e) => setauther({ ...Aouther, author: e.target.value })}
         ></input>
 
         <label>Blog Title</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={title}
-          onChange={(e) => settitle(e.target.value)}
+          value={Aouther.title}
+          onChange={(e) => setauther({ ...Aouther, title: e.target.value })}
         ></input>
         <label>content</label>
         <textarea
           className="h-44"
-          value={content}
-          onChange={(e) => setcontent(e.target.value)}
+          value={Aouther.content}
+          onChange={(e) => setauther({ ...Aouther, content: e.target.value })}
         ></textarea>
         <label>description</label>
         <textarea
           className="h-44"
-          value={desc}
-          onChange={(e) => setdesc(e.target.value)}
+          value={Aouther.description}
+          onChange={(e) => setauther({ ...Aouther, description: e.target.value })}
         ></textarea>
         <label>Image-Url</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={image}
-          onChange={(e) => setimage(e.target.value)}
+          value={Aouther.urlToImage}
+          onChange={(e) => setauther({ ...Aouther, urlToImage: e.target.value })}
         ></input>
         <label>Date</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={[published]}
-          type="date"
-          onChange={(e) => setpublished(e.target.value)}
+          value={Aouther.publishedAt}
+          type="text"
+          onChange={(e) =>
+            setauther({ ...Aouther, publishedAt: e.target.value })
+          }
         ></input>
         <label>source</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={src}
-          onChange={(e) => setsrc(e.target.value)}
+          value={Aouther.src}
+          onChange={(e) => setauther({ ...Aouther, source: e.target.value })}
         ></input>
         <label>Blog Url</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={url}
-          onChange={(e) => seturl(e.target.value)}
+          value={Aouther.url}
+          onChange={(e) => setauther({ ...Aouther, url: e.target.value })}
         ></input>
-        <button type="submits" onClick={() => submit()}>
-          Submit
+        <button type="submits" onClick={() => Update()}>
+          Update
         </button>
       </div>
     </>

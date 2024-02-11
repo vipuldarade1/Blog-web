@@ -2,10 +2,9 @@ import "./App.css";
 import Main from "./component/main/main";
 import Create from "./pages/create/create";
 import Bpage from "./pages/blog_page/blog_page";
-import Update from './pages/update/update'
+import Update from "./pages/update/update";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 
 function App() {
   const url =
@@ -33,10 +32,19 @@ function App() {
   const [getUpdate, SetUpdate] = useState("");
 
   const getup = (title) => {
-    console.log(title);
+   
     SetUpdate(title);
   };
- 
+  const CompUpdate = (data) => {
+    console.log(data)
+    SetBlog(blog.map(blog=>{
+      if(blog.title===data.title){
+        return {...blog,...data}
+      } else {
+        return blog
+      }
+    }))
+  };
   return (
     <div className="App">
       <BrowserRouter>
@@ -50,16 +58,18 @@ function App() {
           <Route path="/blog_page/:title" element={<Bpage blogdata={blog} />} />
           <Route
             path="Create"
+            element={<Create blogdata={blog} getobj={getcreate} />}
+          />
+          <Route
+            path="/update/:title"
             element={
-              <Create
+              <Update
                 blogdata={blog}
-                
-                getobj={getcreate}
-                
+                setupdate={getUpdate}
+                Updating={CompUpdate}
               />
             }
           />
-          <Route path="/update/:title" element={<Update blogdata={blog} setupdate={getUpdate}/>}/>
         </Routes>
       </BrowserRouter>
     </div>
