@@ -32,18 +32,32 @@ function App() {
   const [getUpdate, SetUpdate] = useState("");
 
   const getup = (title) => {
-   
     SetUpdate(title);
   };
   const CompUpdate = (data) => {
-    console.log(data)
-    SetBlog(blog.map(blog=>{
-      if(blog.title===data.title){
-        return {...blog,...data}
-      } else {
-        return blog
-      }
-    }))
+    console.log(data);
+    
+    SetBlog(
+      blog.map((blog) => {
+        if (blog.title === data[0].title) {
+          
+          return {
+            ...blog,
+            author: data.author,
+            content: data.content,
+            description: data.description,
+            publishedAt: data.publishedAt,
+            
+            src: data.src,
+            title: data.title,
+            url: data.url,
+            urlToImage: data.urlToImage
+          };
+        } else {
+          return blog;
+        }
+      })
+    );
   };
   return (
     <div className="App">

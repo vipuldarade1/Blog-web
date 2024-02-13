@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import './main.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons/faTrashCan'
+import { faPenSquare } from "@fortawesome/free-solid-svg-icons/faPenSquare"
 
 const Main = (props) => {
   const naviagte = useNavigate();
@@ -63,7 +64,7 @@ const navigateUp=useNavigate()
                     >
                       more
                     </Card.Link>
-                    <button className="delete" onClick={()=>handleupdate(blog.title)}></button>
+                    <button className="update" onClick={()=>handleupdate(blog.title)}><FontAwesomeIcon icon={faPenSquare}/></button>
                     <button className="delete" onClick={()=>handledelete(blog.title)}><FontAwesomeIcon icon={faTrashCan} /></button>
                     
                   </Card.Body>
