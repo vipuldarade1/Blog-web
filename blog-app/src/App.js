@@ -35,23 +35,20 @@ function App() {
     SetUpdate(title);
   };
   const CompUpdate = (data) => {
-    console.log(data);
-    
     SetBlog(
       blog.map((blog) => {
         if (blog.title === data[0].title) {
-          
           return {
             ...blog,
-            author: data.author,
-            content: data.content,
-            description: data.description,
-            publishedAt: data.publishedAt,
-            
-            src: data.src,
-            title: data.title,
-            url: data.url,
-            urlToImage: data.urlToImage
+            author: data[0].author,
+            content: data[0].content,
+            description: data[0].description,
+            publishedAt: data[0].publishedAt,
+
+            src: data[0].src.name,
+            title: data[0].title,
+            url: data[0].url,
+            urlToImage: data[0].urlToImage,
           };
         } else {
           return blog;

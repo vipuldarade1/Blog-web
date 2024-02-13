@@ -19,3 +19,38 @@
     border: none;
     border-radius: 5px;
 }
+.delete:hover{
+    transform: scale(1.1);
+}
+.update:hover{
+    transform: scale(1.1);
+}
+.main{
+    margin-left: 230px;
+   
+
+}
+.card:hover{
+    
+    transform: translate(-5%,-5%);
+    transition: transform 0.2s ease-in ;
+    animation: animate 0.5s  1 linear ;
+    background-color: rgb(182, 192, 192);
+}
+@keyframes animate{
+    0%{
+        background-color: aliceblue;
+    }
+ 
+    100%{
+        background-color: rgb(182, 192, 192);
+        
+        
+    }
+}
+
+@media screen and (max-width:400px){
+    .main{
+        margin-left: 30px;
+    }
+}

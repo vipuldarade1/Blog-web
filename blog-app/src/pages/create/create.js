@@ -1,8 +1,9 @@
-import {  useState } from "react";
+import { useState } from "react";
 import Header from "../../component/header/header";
 
 import "./create.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../component/footer/footer";
 const Create = (props) => {
   const navigating = useNavigate();
   const [Aouther, setauther] = useState("");
@@ -14,9 +15,7 @@ const Create = (props) => {
   const [src, setsrc] = useState("");
   const [url, seturl] = useState("");
 
-
   const [newArr, SetnewArr] = useState([]);
- 
 
   const submit = () => {
     let arr = [
@@ -32,28 +31,27 @@ const Create = (props) => {
       },
     ];
     SetnewArr(arr);
-    
+
     props.getobj(newArr);
     navigating("/");
   };
-
 
   return (
     <>
       <Header />
 
       <div className="container flex flex-col ... space-y-6 ... mb-4">
-        <div><h3>Create Blog</h3>
-          
+        <div>
+          <h3>Create Blog</h3>
         </div>
         <label>author name</label>
         <input
-        className="w-52 h-6"
-        name=""
-        value={Aouther}
-        onChange={(e) =>setauther(e.target.value)}
-      ></input>
-        
+          className="w-52 h-6"
+          name=""
+          value={Aouther}
+          onChange={(e) => setauther(e.target.value)}
+        ></input>
+
         <label>Blog Title</label>
         <input
           className="w-80 h-6"
@@ -102,10 +100,11 @@ const Create = (props) => {
           value={url}
           onChange={(e) => seturl(e.target.value)}
         ></input>
-        <button type="submits" onClick={()=>submit()}>
+        <button type="submits" onClick={() => submit()}>
           Submit
         </button>
       </div>
+      <Footer />
     </>
   );
 };

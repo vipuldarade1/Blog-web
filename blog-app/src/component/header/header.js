@@ -17,23 +17,25 @@ const Header = (props) => {
     <>
       <nav className="bg-slate-200 shadow-2xl  rounded">
         <ul className="flex space-x-4 ... justify-center ... w-full ...">
+          
+          <li class="font-sans ... font-medium .. uppercase ...   basis-1  w-full ...">
+            <Link to="/" className="text-zinc-700 ">Home</Link>
+          </li>
+
+          <li class="font-sans ... font-medium .. uppercase ...   basis-1  w-full ...">
+            <Link to="create" onClick={Gocreate} className="text-zinc-700">
+              Create Blogs
+            </Link>
+          </li>
           <li>
             <input
               name="search"
               value={nSearch}
               onChange={(e) => Search(e.target.value)}
+              
             ></input>
           </li>
 
-          <li class="font-sans ... font-medium .. uppercase ... text-zinc-700  basis-1  w-full ...">
-            <Link to="/">Home</Link>
-          </li>
-
-          <li class="font-sans ... font-medium .. uppercase ... text-zinc-700  basis-1  w-full ...">
-            <Link to="create" onClick={Gocreate}>
-              Create Blogs
-            </Link>
-          </li>
         </ul>
       </nav>
     </>

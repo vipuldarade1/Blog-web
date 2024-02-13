@@ -1,12 +1,12 @@
+import Footer from "../../component/footer/footer";
 import Header from "../../component/header/header";
 import "./update.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 const Update = (props) => {
   const Params = useParams();
-const naviagte=useNavigate()
+  const naviagte = useNavigate();
   const [Aouther, setauther] = useState({
     author: "",
     content: "",
@@ -15,13 +15,13 @@ const naviagte=useNavigate()
     description: "",
     publishedAt: "",
     source: {
-      Name: "",
+      name: "",
     },
     url: "",
   });
 
   const getdata = props.blogdata;
- 
+
   const selectdata = getdata.find((data) => data.title === Params.title);
 
   useEffect(() => {
@@ -37,18 +37,17 @@ const naviagte=useNavigate()
       url: selectdata.url,
     });
   }, []);
-  
 
   const Update = () => {
     console.log("update");
     let arr = [
       {
-     ...Aouther
+        ...Aouther,
       },
     ];
-    
-    props.Updating(arr)
-    naviagte('/')
+
+    props.Updating(arr);
+    naviagte("/");
   };
   return (
     <>
@@ -83,14 +82,18 @@ const naviagte=useNavigate()
         <textarea
           className="h-44"
           value={Aouther.description}
-          onChange={(e) => setauther({ ...Aouther, description: e.target.value })}
+          onChange={(e) =>
+            setauther({ ...Aouther, description: e.target.value })
+          }
         ></textarea>
         <label>Image-Url</label>
         <input
           className="w-80 h-6"
           name="Image"
           value={Aouther.urlToImage}
-          onChange={(e) => setauther({ ...Aouther, urlToImage: e.target.value })}
+          onChange={(e) =>
+            setauther({ ...Aouther, urlToImage: e.target.value })
+          }
         ></input>
         <label>Date</label>
         <input
@@ -120,6 +123,7 @@ const naviagte=useNavigate()
           Update
         </button>
       </div>
+      <Footer />
     </>
   );
 };
