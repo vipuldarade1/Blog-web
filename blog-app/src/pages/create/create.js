@@ -1,39 +1,35 @@
 import { useState } from "react";
 import Header from "../../component/header/header";
-
+import axios from "axios";
 import "./create.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../component/footer/footer";
 const Create = (props) => {
   const navigating = useNavigate();
-  const [Aouther, setauther] = useState("");
-  const [content, setcontent] = useState("");
-  const [title, settitle] = useState("");
-  const [image, setimage] = useState("");
-  const [desc, setdesc] = useState("");
-  const [published, setpublished] = useState("");
-  const [src, setsrc] = useState("");
-  const [url, seturl] = useState("");
+  const [Create, setcreate] = useState({
+    author: "",
+    content: "",
+    title: "",
+    urlToImage: "",
+    description: "",
+    publishedAt: "",
+    source: "",
+    url: ""
+  });
 
-  const [newArr, SetnewArr] = useState([]);
+  const submit = async () => {
+    let arr = [{ ...Create }];
 
-  const submit = () => {
-    let arr = [
-      {
-        author: Aouther,
-        content: content,
-        title: title,
-        urlToImage: image,
-        description: desc,
-        publishedAt: published,
-        source: src,
-        url: url,
-      },
-    ];
-    SetnewArr(arr);
-
-    props.getobj(newArr);
-    navigating("/");
+    // props.getobj(newArr);
+    try {
+      await axios.post("http://localhost:3001/", {
+        ...arr,
+      });
+      console.log(...arr);
+    } catch (e) {
+      console.log(e);
+    }
+    // navigating("/");
   };
 
   return (
@@ -47,58 +43,58 @@ const Create = (props) => {
         <label>author name</label>
         <input
           className="w-52 h-6"
-          name=""
-          value={Aouther}
-          onChange={(e) => setauther(e.target.value)}
+          name="Author"
+          value={Create.author}
+          onChange={(e)=> console.log(setcreate({author: e.target.value }))}
         ></input>
 
         <label>Blog Title</label>
         <input
           className="w-80 h-6"
-          name="Image"
-          value={title}
-          onChange={(e) => settitle(e.target.value)}
+          name="title"
+          value={Create.title}
+          onChange={(e) => setcreate({ title: e.target.value })}
         ></input>
         <label>content</label>
         <textarea
           className="h-44"
-          value={content}
-          onChange={(e) => setcontent(e.target.value)}
+          value={Create.content}
+          onChange={(e) => setcreate({ content: e.target.value })}
         ></textarea>
         <label>description</label>
         <textarea
           className="h-44"
-          value={desc}
-          onChange={(e) => setdesc(e.target.value)}
+          value={Create.description}
+          onChange={(e) => setcreate({ description: e.target.value })}
         ></textarea>
         <label>Image-Url</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={image}
-          onChange={(e) => setimage(e.target.value)}
+          value={Create.urlToImage}
+          onChange={(e) => setcreate({ urlToImage: e.target.value })}
         ></input>
         <label>Date</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={[published]}
+          value={Create.publishedAt}
           type="date"
-          onChange={(e) => setpublished(e.target.value)}
+          onChange={(e) => setcreate({ publishedAtr: e.target.value })}
         ></input>
         <label>source</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={src}
-          onChange={(e) => setsrc(e.target.value)}
+          value={Create.source}
+          onChange={(e) => setcreate({ source: e.target.value })}
         ></input>
         <label>Blog Url</label>
         <input
           className="w-80 h-6"
           name="Image"
-          value={url}
-          onChange={(e) => seturl(e.target.value)}
+          value={Create.url}
+          onChange={(e) => setcreate({ url: e.target.value })}
         ></input>
         <button type="submits" onClick={() => submit()}>
           Submit
