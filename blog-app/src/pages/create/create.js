@@ -14,22 +14,29 @@ const Create = (props) => {
     description: "",
     publishedAt: "",
     source: "",
-    url: ""
+    url: "",
   });
+  const handlechange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    setcreate((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const submit = async (e) => {
+    e.preventDefault();
+    let arr5 = [Create];
 
-  const submit = async () => {
-    let arr = [{ ...Create }];
-
-    // props.getobj(newArr);
+    console.log(...arr5);
     try {
       await axios.post("http://localhost:3001/", {
-        ...arr,
+        ...arr5,
       });
-      console.log(...arr);
+      console.log(...arr5);
     } catch (e) {
       console.log(e);
     }
-    // navigating("/");
+    navigating("/");
   };
 
   return (
@@ -43,9 +50,9 @@ const Create = (props) => {
         <label>author name</label>
         <input
           className="w-52 h-6"
-          name="Author"
+          name="author"
           value={Create.author}
-          onChange={(e)=> console.log(setcreate({author: e.target.value }))}
+          onChange={(e) => handlechange(e)}
         ></input>
 
         <label>Blog Title</label>
@@ -53,50 +60,52 @@ const Create = (props) => {
           className="w-80 h-6"
           name="title"
           value={Create.title}
-          onChange={(e) => setcreate({ title: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></input>
         <label>content</label>
         <textarea
           className="h-44"
+          name="content"
           value={Create.content}
-          onChange={(e) => setcreate({ content: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></textarea>
         <label>description</label>
         <textarea
           className="h-44"
+          name="description"
           value={Create.description}
-          onChange={(e) => setcreate({ description: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></textarea>
         <label>Image-Url</label>
         <input
           className="w-80 h-6"
-          name="Image"
+          name="urlToImage"
           value={Create.urlToImage}
-          onChange={(e) => setcreate({ urlToImage: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></input>
         <label>Date</label>
         <input
           className="w-80 h-6"
-          name="Image"
+          name="publishedAt"
           value={Create.publishedAt}
           type="date"
-          onChange={(e) => setcreate({ publishedAtr: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></input>
         <label>source</label>
         <input
           className="w-80 h-6"
-          name="Image"
+          name="source"
           value={Create.source}
-          onChange={(e) => setcreate({ source: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></input>
         <label>Blog Url</label>
         <input
           className="w-80 h-6"
-          name="Image"
+          name="url"
           value={Create.url}
-          onChange={(e) => setcreate({ url: e.target.value })}
+          onChange={(e) => handlechange(e)}
         ></input>
-        <button type="submits" onClick={() => submit()}>
+        <button type="submits" onClick={(e) => submit(e)}>
           Submit
         </button>
       </div>

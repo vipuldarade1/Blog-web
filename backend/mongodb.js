@@ -10,36 +10,36 @@ mongodb
 const Schema = new mongodb.Schema({
   author: {
     type: String,
-    require:true
+    require: true,
   },
   content: {
     type: String,
-    require:true
+    require: true,
   },
   title: {
     type: String,
-    require:true
+    require: true,
   },
   urlToImage: {
     type: String,
-    require:true
+    require: true,
   },
   description: {
     type: String,
-    require:true
+    require: true,
   },
   publishedAt: {
     type: String,
-    require:true
+    require: true,
   },
   source: {
     type: String,
-    require:true
+    require: true,
   },
   url: {
     type: String,
-    require:true
+    require: true,
   },
 });
-const collection = mongodb.model("collection", Schema);
+const collection = mongodb.model("collection1", Schema);
 module.exports = collection;
