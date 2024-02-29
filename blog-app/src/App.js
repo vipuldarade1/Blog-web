@@ -5,6 +5,7 @@ import Bpage from "./pages/blog_page/blog_page";
 import Update from "./pages/update/update";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   const url =
@@ -22,9 +23,12 @@ function App() {
       });
   }, []);
 
-  const getcreate = (get) => {
-    SetBlog([...blog, get]);
-  };
+  axios
+    .get("http://localhost:3001/getdata")
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+
+  // SetBlog([...blog, get]);
 
   const getdelete = (title) => {
     SetBlog(blog.filter((blog) => title !== blog.title));
@@ -67,10 +71,7 @@ function App() {
             }
           />
           <Route path="/blog_page/:title" element={<Bpage blogdata={blog} />} />
-          <Route
-            path="Create"
-            element={<Create blogdata={blog} getobj={getcreate} />}
-          />
+          <Route path="Create" element={<Create blogdata={blog} />} />
           <Route
             path="/update/:title"
             element={

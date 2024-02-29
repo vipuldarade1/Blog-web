@@ -7,39 +7,39 @@ mongodb
   .catch(() => {
     console.log("failed");
   });
-const Schema = new mongodb.Schema({
+const newSchema = new mongodb.Schema({
   author: {
     type: String,
-    require: true,
+    required:true
   },
   content: {
     type: String,
-    require: true,
+    required:true
   },
   title: {
     type: String,
-    require: true,
+    required:true
   },
   urlToImage: {
     type: String,
-    require: true,
+    required:true
   },
   description: {
     type: String,
-    require: true,
+    required:true
   },
   publishedAt: {
     type: String,
-    require: true,
+    required:true
   },
   source: {
     type: String,
-    require: true,
+    required:true
   },
   url: {
     type: String,
-    require: true,
+    required:true
   },
 });
-const collection = mongodb.model("collection1", Schema);
+const collection = mongodb.model("collection1", newSchema);
 module.exports = collection;

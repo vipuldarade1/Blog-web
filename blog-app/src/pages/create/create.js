@@ -25,18 +25,17 @@ const Create = (props) => {
   };
   const submit = async (e) => {
     e.preventDefault();
-    let arr5 = [Create];
+    let arr5 = Create;
 
-    console.log(...arr5);
     try {
       await axios.post("http://localhost:3001/", {
-        ...arr5,
+        ...arr5
       });
-      console.log(...arr5);
+      console.log(arr5);
     } catch (e) {
       console.log(e);
     }
-    navigating("/");
+    // navigating("/");
   };
 
   return (
