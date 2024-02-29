@@ -16,6 +16,8 @@ const Create = (props) => {
     source: "",
     url: "",
   });
+  const data=props.blogdata
+  console.log(data);
   const handlechange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -29,13 +31,13 @@ const Create = (props) => {
 
     try {
       await axios.post("http://localhost:3001/", {
-        ...arr5
+        ...arr5,
       });
       console.log(arr5);
     } catch (e) {
       console.log(e);
     }
-    // navigating("/");
+    navigating("/");
   };
 
   return (

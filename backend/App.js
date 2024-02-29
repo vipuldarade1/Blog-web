@@ -18,11 +18,10 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.get("/getdata", (req, res) => {
-  collection
+app.get("/getdata", async (req, res) => {
+  await collection
     .find()
     .then((data) => res.json(data))
-    .then((data) => console.log(data))
     .catch((err) => res.json(err));
 });
 console.log("server is on");

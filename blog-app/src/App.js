@@ -12,7 +12,9 @@ function App() {
     "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=9ffc57759a18406eb520e14919a63e0b";
   let all_blog = [];
   const [blog, SetBlog] = useState([]);
-
+  console.log(blog)
+  const [newCreate, Setnewcreate] = useState([]);
+  console.log(newCreate);
   useEffect(() => {
     fetch(url)
       .then((get) => get.json())
@@ -22,13 +24,24 @@ function App() {
         SetBlog(data.articles);
       });
   }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/getdata")
+      .then((get) => Setnewcreate(get.data))
+      .catch((err) => console.log(err));
 
-  axios
-    .get("http://localhost:3001/getdata")
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
-
-  // SetBlog([...blog, get]);
+    SetBlog({
+      ...blog,
+      author:newCreate.author,
+      content: newCreate.content,
+      title: newCreate.title,
+      urlToImage: newCreate.urlToImaget,
+      description: newCreate.description,
+      publishedAt: newCreate.publishedAtt,
+      source: newCreate.source,
+      url: newCreate.url,
+    });
+  }, []);
 
   const getdelete = (title) => {
     SetBlog(blog.filter((blog) => title !== blog.title));
