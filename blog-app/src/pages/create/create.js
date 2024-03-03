@@ -13,11 +13,12 @@ const Create = (props) => {
     urlToImage: "",
     description: "",
     publishedAt: "",
-    source: "",
+    source: {
+      name:""
+    },
     url: "",
   });
-  const data=props.blogdata
-  console.log(data);
+
   const handlechange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -26,7 +27,6 @@ const Create = (props) => {
     });
   };
   const submit = async (e) => {
-    e.preventDefault();
     let arr5 = Create;
 
     try {
@@ -96,7 +96,7 @@ const Create = (props) => {
         <input
           className="w-80 h-6"
           name="source"
-          value={Create.source}
+          value={Create.source.name}
           onChange={(e) => handlechange(e)}
         ></input>
         <label>Blog Url</label>

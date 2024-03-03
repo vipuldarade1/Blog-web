@@ -32,10 +32,12 @@ const newSchema = new mongodb.Schema({
     type: String,
     required:true
   },
-  source: {
-    type: String,
-    required:true
-  },
+  source:{
+    name:{
+      type: String,
+      required:true
+    },
+  } ,
   url: {
     type: String,
     required:true
