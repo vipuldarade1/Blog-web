@@ -27,6 +27,11 @@ app.get("/getdata", async (req, res) => {
     .then((data) => res.json(data))
     .catch((err) => res.json(err));
 });
+// app.put('/update/:title',async(req,res)=>{
+//   console.log('update',req.body)
+  
+
+// })
 // mongoose.connect('mongodb://localhost:27017/local')
 // const post=new mongoose.Schema({
 //   author: {

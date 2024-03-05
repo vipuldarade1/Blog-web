@@ -1,11 +1,13 @@
 import Footer from "../../component/footer/footer";
 import Header from "../../component/header/header";
 import "./update.css";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Update = (props) => {
   const Params = useParams();
+ 
   const naviagte = useNavigate();
   const [Aouther, setauther] = useState({
     author: "",
@@ -39,13 +41,15 @@ const Update = (props) => {
   }, []);
 
   const Update = () => {
-    console.log("update");
     let arr = [
       {
         ...Aouther,
       },
     ];
-
+    axios
+      .put("http://localhost:3001/" + Params.title,arr)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
     props.Updating(arr);
     naviagte("/");
   };
