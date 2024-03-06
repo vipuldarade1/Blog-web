@@ -47,7 +47,7 @@ const Update = (props) => {
       },
     ];
     axios
-      .put("http://localhost:3001/" + Params.title,arr)
+      .put("http://localhost:3001/update/" + Params.title,arr)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     props.Updating(arr);

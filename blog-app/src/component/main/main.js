@@ -51,7 +51,8 @@ const Main = (props) => {
                 key={index}
                 className="card"
               >
-                <Card.Body>
+                <Card.Body >
+                  <Card.Img className="cardimg" src={blog.urlToImage}/>
                   <Card.Title>{blog.title}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
                     {blog.author}
