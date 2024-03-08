@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const Update = (props) => {
   const Params = useParams();
- 
+
   const naviagte = useNavigate();
   const [Aouther, setauther] = useState({
     author: "",
@@ -21,7 +21,7 @@ const Update = (props) => {
     },
     url: "",
   });
-
+  
   const getdata = props.blogdata;
 
   const selectdata = getdata.find((data) => data.title === Params.title);
@@ -41,15 +41,17 @@ const Update = (props) => {
   }, []);
 
   const Update = () => {
+  
+      axios
+        .put("http://localhost:3001/update/" + Aouther.title,Aouther)
+        
+    
     let arr = [
       {
         ...Aouther,
       },
     ];
-    axios
-      .put("http://localhost:3001/update/" + Params.title,arr)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    
     props.Updating(arr);
     naviagte("/");
   };

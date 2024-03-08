@@ -27,11 +27,21 @@ app.get("/getdata", async (req, res) => {
     .then((data) => res.json(data))
     .catch((err) => res.json(err));
 });
-app.put('/update/:title',async(req,res)=>{
-  console.log('update',req.body)
-  
+app.put("/update/:title", async (req, res) => {
+  console.log("update", req.body);
+  const newupdate = req.body;
 
-})
+  try {
+    await collection.updateOne(
+      { title: req.params.title },
+      {
+        $set: newupdate,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+});
 // mongoose.connect('mongodb://localhost:27017/local')
 // const post=new mongoose.Schema({
 //   author: {
@@ -75,7 +85,7 @@ app.put('/update/:title',async(req,res)=>{
 //     "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=9ffc57759a18406eb520e14919a63e0b"
 //   );
 //   const respons = await api.json();
-  
+
 //   for(let i=0;i<respons.length;i++){
 //     console.log(respons[i]['author'])
 //     const newpost=new newcol({
