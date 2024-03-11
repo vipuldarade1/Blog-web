@@ -106,7 +106,7 @@ const Update = (props) => {
           className="w-80 h-6"
           name="Image"
           value={Aouther.publishedAt}
-          type="text"
+          type="date"
           onChange={(e) =>
             setauther({ ...Aouther, publishedAt: e.target.value })
           }

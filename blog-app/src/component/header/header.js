@@ -15,16 +15,16 @@ const Header = (props) => {
   }
   return (
     <>
-      <nav className="bg-slate-200 shadow-2xl  rounded">
+      <nav className="bg-slate-900 shadow-2xl  rounded h-16">
         <ul className="flex space-x-4 ... justify-center ... w-full ...">
           
           <li class="font-sans ... font-medium .. uppercase ...   basis-1  w-full ...">
-            <Link to="/" className="text-zinc-700 ">Home</Link>
+            <Link to="/" className="text-zinc-300 "><h6>Home</h6></Link>
           </li>
 
           <li class="font-sans ... font-medium .. uppercase ...   basis-1  w-full ...">
-            <Link to="create" onClick={Gocreate} className="text-zinc-700">
-              Create Blogs
+            <Link to="create" onClick={Gocreate} className="text-zinc-300">
+              <h6>Create Blogs</h6>
             </Link>
           </li>
           <li>

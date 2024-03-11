@@ -8,6 +8,7 @@ import "./main.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons/faTrashCan";
 import { faPenSquare } from "@fortawesome/free-solid-svg-icons/faPenSquare";
+import axios from "axios";
 
 const Main = (props) => {
   const naviagte = useNavigate();
@@ -29,9 +30,15 @@ const Main = (props) => {
       )
     );
   };
-  const handledelete = (title) => {
-    alert("You are deleting blog");
+  const handledelete = async(title) => {
+    window.confirm("You are deleting blog");
     props.getdel(title);
+    await axios
+      .delete("http://localhost:3001/delete/" + title)
+      .then((res) => {
+        alert("Blog has been Deleted");
+      })
+      .catch((err) => console.log(err));
   };
   const handleupdate = (title) => {
     props.getupdate(title);
@@ -42,7 +49,7 @@ const Main = (props) => {
     <>
       <Header data={props.blogdata} Getserch={Getsearch} />
 
-      <div className="container main">
+      <div className=" main">
         <ul className="flex flex-wrap">
           {Change && Change.length > 0 ? (
             Change.map((blog, index) => (
@@ -51,8 +58,8 @@ const Main = (props) => {
                 key={index}
                 className="card"
               >
-                <Card.Body >
-                  <Card.Img className="cardimg" src={blog.urlToImage}/>
+                <Card.Body>
+                  <Card.Img className="cardimg" src={blog.urlToImage} />
                   <Card.Title>{blog.title}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
                     {blog.author}
@@ -81,7 +88,7 @@ const Main = (props) => {
               </Card>
             ))
           ) : (
-            <h5>Blog not found</h5>
+            <h6>Blog not found</h6>
           )}
           <li></li>
         </ul>

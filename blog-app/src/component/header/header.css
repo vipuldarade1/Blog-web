@@ -2,5 +2,7 @@ input{
     border: none;
     margin-top: 10px;
     border-radius: 5px;
-    box-shadow: 5px 5px 5px rgb(74, 110, 121);
+    box-shadow: 5px 5px 5px rgb(149, 165, 170);
+    background-color: rgb(101, 103, 106);
+    color: azure;
 }
