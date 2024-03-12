@@ -49,65 +49,73 @@ const Create = (props) => {
         <div>
           <h3>Create Blog</h3>
         </div>
-        <label>author name</label>
+        <label>Author name</label>
         <input
-          className="w-52 h-6"
+          className="w-52 h-7"
           name="author"
+          placeholder=" Author name"
           value={Create.author}
           onChange={(e) => handlechange(e)}
         ></input>
 
         <label>Blog Title</label>
         <input
-          className="w-80 h-6"
+          className="w-80 h-7"
           name="title"
+          placeholder="Blog Title"
           value={Create.title}
           onChange={(e) => handlechange(e)}
         ></input>
-        <label>content</label>
+        <label>Content</label>
         <textarea
-          className="h-44"
+          className="h-44 w-3/4"
           name="content"
+          placeholder="Content"
           value={Create.content}
           onChange={(e) => handlechange(e)}
         ></textarea>
-        <label>description</label>
+        <label>Description</label>
         <textarea
-          className="h-44"
+          className="h-44 w-3/4"
           name="description"
+          placeholder="Description"
           value={Create.description}
           onChange={(e) => handlechange(e)}
         ></textarea>
         <label>Image-Url</label>
         <input
-          className="w-80 h-6"
+          className="w-80 h-7"
           name="urlToImage"
+          placeholder="Image-Url"
           value={Create.urlToImage}
           onChange={(e) => handlechange(e)}
         ></input>
-        <label>Date</label>
+        <label>Published Date</label>
         <input
-          className="w-80 h-6"
+          className="w-80 h-7"
           name="publishedAt"
+          placeholder="Published Date"
           value={Create.publishedAt}
           type="date"
           onChange={(e) => handlechange(e)}
         ></input>
-        <label>source</label>
+        <label>Source</label>
         <input
-          className="w-80 h-6"
+          className="w-80 h-7"
           name="source"
+          placeholder="Source"
           value={Create.source.name}
           onChange={(e) => handlechange(e)}
         ></input>
         <label>Blog Url</label>
         <input
-          className="w-80 h-6"
+          className="w-80 h-7"
           name="url"
+          placeholder="Blog Url"
           value={Create.url}
           onChange={(e) => handlechange(e)}
         ></input>
-        <button type="submits" onClick={(e) => submit(e)}>
+        <button type="submits" className="bg-[#1d4ed8]" onClick={(e) => submit(e)}>
           Submit
         </button>
       </div>

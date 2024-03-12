@@ -1,11 +1,12 @@
+import './footer.css'
 const Footer = () => {
   return (
     <>
       <div
-        className="bg-slate-900 shadow-2xl  rounded "
-        style={{ height: "90px", textAlign: "center" }}
+        className=" shadow-2xl  rounded footer"
+        style={{ height: "90px", textAlign: "center",backgroundColor:'#302A39' }}
       >
-        <p className="text-zinc-300">@Vipul Darade</p>
+        <p className="text-zinc-300 pt-3">@Vipul Darade</p>
       </div>
     </>
   );

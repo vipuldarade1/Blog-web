@@ -125,7 +125,7 @@ const Update = (props) => {
           value={Aouther.url}
           onChange={(e) => setauther({ ...Aouther, url: e.target.value })}
         ></input>
-        <button type="submits" onClick={() => Update()}>
+        <button type="submits" style={{backgroundColor:'rgb(33, 81, 192)'}} onClick={() => Update()}>
           Update
         </button>
       </div>
