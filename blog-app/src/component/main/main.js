@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons/faTrashCan";
 import { faPenSquare } from "@fortawesome/free-solid-svg-icons/faPenSquare";
 import axios from "axios";
-
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons/faCirclePlus";
+import { Link } from "react-router-dom";
 const Main = (props) => {
   const naviagte = useNavigate();
   const navigateUp = useNavigate();
@@ -30,7 +31,7 @@ const Main = (props) => {
       )
     );
   };
-  const handledelete = async(title) => {
+  const handledelete = async (title) => {
     window.confirm("You are deleting blog");
     props.getdel(title);
     await axios
@@ -44,6 +45,11 @@ const Main = (props) => {
     props.getupdate(title);
     navigateUp(`/update/${title}`);
   };
+  function Gocreate() {
+    naviagate("/create");
+  }
+  const naviagate = useNavigate();
+
 
   return (
     <>
@@ -93,6 +99,19 @@ const Main = (props) => {
           <li></li>
         </ul>
       </div>
+      <li className="bottom-9 right-5  fixed">
+        <div className="absolute top-8 right-8 ">
+          <p className="p-2 ... text-slate-800 ">Create Blog</p>
+        </div>
+        <Link to="create" onClick={Gocreate}>
+          <FontAwesomeIcon
+            size="2xl"
+            className="hover:scale-125 ml-16 mt-5 hover:animate-spin"
+           
+            icon={faCirclePlus}
+          />
+        </Link>
+      </li>
       <Footer />
     </>
   );

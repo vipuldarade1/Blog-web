@@ -13,6 +13,9 @@
     border-radius: 5px;
 
 }
+li{
+    list-style-type: none;
+}
 .update{
     width: 30px;
     height: 30px;
