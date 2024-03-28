@@ -10,34 +10,34 @@ mongodb
 const newSchema = new mongodb.Schema({
   author: {
     type: String,
-    required:true
+    required: true,
   },
   content: {
     type: String,
-    required:true
+    required: true,
   },
   title: {
     type: String,
-    required:true
+    required: true,
   },
   urlToImage: {
     type: String,
-    required:true
+    required: true,
   },
   description: {
     type: String,
-    required:true
+    required: true,
   },
   publishedAt: {
     type: String,
-    required:true
+    required: true,
   },
-  source:{
-    name:[String]
-  } ,
+  source: {
+    name: [String],
+  },
   url: {
     type: String,
-    required:true
+    required: true,
   },
 });
 const collection = mongodb.model("collection1", newSchema);

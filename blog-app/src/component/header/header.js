@@ -18,17 +18,24 @@ const Header = (props) => {
     <>
       <nav className=" shadow-2xl  rounded h-16 header">
         <ul className="flex space-x-4 ... justify-between ...   ... w-full ...">
-          <li className="ml-6 mt-2  ">
+          <li className="ml-6 mt-2  flex">
             <Link to="/">
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
+                className="hidden min-[320px]:block max-[600px]:block"
                 size="2xl"
                 style={{ color: "#ededed" }}
                 icon={faBloggerB}
-              />
+              /> */}
+              <h3
+                className=" font-mono ... w-10 "
+                style={{ color: "#d4d4d4" }}
+              >
+                Blogmania
+              </h3>
             </Link>
           </li>
 
-          <li className="mr-4">
+          <li className="mr-4 w-30">
             <FontAwesomeIcon
               className="absolute ml-1 mt-3 "
               style={{ color: "#b0b0b0" }}

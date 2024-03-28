@@ -50,7 +50,6 @@ const Main = (props) => {
   }
   const naviagate = useNavigate();
 
-
   return (
     <>
       <Header data={props.blogdata} Getserch={Getsearch} />
@@ -100,14 +99,14 @@ const Main = (props) => {
         </ul>
       </div>
       <li className="bottom-9 right-5  fixed">
-        <div className="absolute top-8 right-8 ">
-          <p className="p-2 ... text-slate-800 ">Create Blog</p>
+        <div className="absolute top-11 right-14 w-20 h-14 bg-slate-200 rounded-full ...">
+          <p className="pl-3 ... text-slate-800 ">Create Blog</p>
         </div>
         <Link to="create" onClick={Gocreate}>
           <FontAwesomeIcon
-            size="2xl"
-            className="hover:scale-125 ml-16 mt-5 hover:animate-spin"
-           
+            style={{ color: "#cea636" }}
+            size="3x"
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 ml-16 mt-5 duration-300 ..."
             icon={faCirclePlus}
           />
         </Link>
